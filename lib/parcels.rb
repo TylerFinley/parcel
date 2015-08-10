@@ -3,18 +3,25 @@ class Parcels
     @length = length
     @width = width
     @height = height
-    @weight = weight
+    if weight.<=5
+      @weight = 25
+
+    elsif weight.>20
+      @weight = 50
+    else
+      @weight = 30
+    end
   end
 
   define_method(:volume) do
     @length.*(@width).*(@height)
-    end
+  end
 
   define_method(:cost_to_ship) do
-    @length.*(@width).*(@height).+(@weight)
-  end
+    volume().+(@weight)
+      # if @weight == low_weight
+      #   return "hello"
+      # end
+    end
 
-  define_method(:weight) do
-    @weight.<=5
-  end
 end
