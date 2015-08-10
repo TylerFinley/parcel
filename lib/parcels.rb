@@ -6,11 +6,15 @@ class Parcels
     @weight = weight
   end
 
-
   define_method(:volume) do
     @length.*(@width).*(@height)
     end
+
   define_method(:cost_to_ship) do
     @length.*(@width).*(@height).+(@weight)
+  end
+
+  define_method(:weight) do
+    @weight.<=5
   end
 end
